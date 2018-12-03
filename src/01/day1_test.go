@@ -1,16 +1,15 @@
 package day1
 
 import (
-	"bufio"
 	"fmt"
-	"log"
-	"os"
 	"strconv"
 	"testing"
+
+	"helper"
 )
 
 func TestPartA(t *testing.T) {
-	lines, _ := readLines("input")
+	lines, _ := helper.ReadLines("input")
 
 	for _, value := range lines {
 		i, _ := strconv.ParseInt(value, 10, 32)
@@ -22,7 +21,7 @@ func TestPartA(t *testing.T) {
 
 func TestPartB(t *testing.T) {
 	Frequency = 0
-	lines, _ := readLines("input")
+	lines, _ := helper.ReadLines("input")
 
 	var frequencies []int
 	frequencies = append(frequencies, Frequency)
@@ -39,22 +38,6 @@ func TestPartB(t *testing.T) {
 			}
 		}
 	}
-}
-
-func readLines(path string) ([]string, error) {
-	file, err := os.Open(path)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	var lines []string
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-
-	return lines, scanner.Err()
 }
 
 func IsUnique(value int, list []int) bool {
