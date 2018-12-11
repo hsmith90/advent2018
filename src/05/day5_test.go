@@ -1,4 +1,4 @@
-package Day5
+package day5
 
 import (
 	"bytes"
@@ -39,9 +39,8 @@ func CollapsePolymer(s []rune) []rune {
 
 	if anyCollapsed {
 		return CollapsePolymer(newArray)
-	} else {
-		return newArray
 	}
+	return newArray
 }
 
 func TestPartB(t *testing.T) {
